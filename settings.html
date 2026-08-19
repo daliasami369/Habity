@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings — Habitly</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 34 34%27%3E%3Ccircle cx=%2717%27 cy=%2717%27 r=%2716%27 fill=%27%231B2420%27/%3E%3Ccircle cx=%2717%27 cy=%2717%27 r=%2711%27 fill=%27%23202B25%27 stroke=%27%23E9CE8F%27 stroke-width=%271.2%27/%3E%3Cpath d=%27M17 22c-3.5 0-5.5-2.5-5.5-6.2 0-.3.2-.5.5-.5 3.9 0 6.7 1.6 7.8 4.2.2.5-.1 1-.6 1.1-.7.2-1.4.3-2.2.4Z%27 fill=%27%237FA65B%27/%3E%3Cpath d=%27M17 22c0-4.8 1.6-8 5-9.4.3-.1.6.1.6.4.4 4.4-1.6 7.7-5.1 9.2-.3.1-.5-.1-.5-.2Z%27 fill=%27%23D6A94B%27/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/settings.css" />
+</head>
+<body>
+
+  <!-- ================= Shared header — identical markup on every page ================= -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand">
+        <svg class="brand__mark" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="17" cy="17" r="15.5" stroke="var(--color-gold)" stroke-width="1.2" stroke-dasharray="2 3"/>
+          <circle cx="17" cy="17" r="11" fill="var(--color-bg-elevated)" stroke="var(--color-gold-soft)" stroke-width="1.2"/>
+          <path d="M17 22c-3.5 0-5.5-2.5-5.5-6.2 0-.3.2-.5.5-.5 3.9 0 6.7 1.6 7.8 4.2.2.5-.1 1-.6 1.1-.7.2-1.4.3-2.2.4Z" fill="var(--color-sage)"/>
+          <path d="M17 22c0-4.8 1.6-8 5-9.4.3-.1.6.1.6.4.4 4.4-1.6 7.7-5.1 9.2-.3.1-.5-.1-.5-.2Z" fill="var(--color-gold)"/>
+        </svg>
+        <span class="brand__name">Habitly</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="dashboard.html" class="nav__link">
+          <svg class="nav__link-icon" viewBox="0 0 16 16" fill="none"><rect x="1.5" y="1.5" width="5.5" height="5.5" rx="1" stroke="currentColor" stroke-width="1.3"/><rect x="9" y="1.5" width="5.5" height="9.5" rx="1" stroke="currentColor" stroke-width="1.3"/><rect x="1.5" y="9.5" width="5.5" height="5" rx="1" stroke="currentColor" stroke-width="1.3"/></svg>
+          <span class="nav__link-label" data-i18n="nav.dashboard">Dashboard</span>
+        </a>
+        <a href="habits.html" class="nav__link">
+          <svg class="nav__link-icon" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/><circle cx="8" cy="8" r="2" fill="currentColor"/></svg>
+          <span class="nav__link-label" data-i18n="nav.habits">My Habits</span>
+        </a>
+        <a href="stats.html" class="nav__link">
+          <svg class="nav__link-icon" viewBox="0 0 16 16" fill="none"><path d="M8 1.5 14.5 8 8 14.5 1.5 8Z" stroke="currentColor" stroke-width="1.3"/></svg>
+          <span class="nav__link-label" data-i18n="nav.stats">Statistics</span>
+        </a>
+        <a href="settings.html" class="nav__link nav__link--active" aria-current="page">
+          <svg class="nav__link-icon" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="2.4" stroke="currentColor" stroke-width="1.3"/><path d="M8 1.8v1.4M8 12.8v1.4M14.2 8h-1.4M3.2 8H1.8M12.2 3.8l-1 1M4.8 11.2l-1 1M12.2 12.2l-1-1M4.8 4.8l-1-1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          <span class="nav__link-label" data-i18n="nav.settings">Settings</span>
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="lang-toggle" data-i18n="lang.toggle">العربية</button>
+        <div class="avatar">A</div>
+      </div>
+    </div>
+  </header>
+  <!-- ================= /Shared header ================= -->
+
+  <main class="container settings-page" style="padding-block: var(--space-6) var(--space-8);">
+    <h1 style="font-size: var(--fs-xl); margin-bottom: var(--space-5);" data-i18n="settings.title">Settings</h1>
+
+    <div class="settings-stack">
+
+      <!-- User Profile -->
+      <section class="settings-panel" aria-labelledby="profileHeading">
+        <h2 id="profileHeading" class="settings-panel__title" data-i18n="settings.profile.title">User Profile</h2>
+        <p class="settings-panel__desc" data-i18n="settings.profile.desc">Your info and a quick look at your progress.</p>
+
+        <div class="profile-block">
+          <div class="avatar-picker">
+            <span id="avatarDisplay" class="avatar-display">🙂</span>
+            <div class="avatar-options" id="avatarOptions">
+              <button type="button" data-avatar="🙂">🙂</button>
+              <button type="button" data-avatar="🧘">🧘</button>
+              <button type="button" data-avatar="🏃">🏃</button>
+              <button type="button" data-avatar="🌿">🌿</button>
+              <button type="button" data-avatar="⚡">⚡</button>
+              <button type="button" data-avatar="🔥">🔥</button>
+            </div>
+          </div>
+
+          <div class="profile-field">
+            <label for="nameInput" data-i18n="settings.profile.name">Name</label>
+            <input type="text" id="nameInput" maxlength="40" placeholder="Alex" />
+          </div>
+
+          <div class="profile-actions">
+            <button id="saveProfileBtn" class="btn btn--primary" type="button" data-i18n="settings.profile.save">Save Changes</button>
+            <span id="saveStatus" class="save-status" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <div class="profile-stats">
+          <div class="profile-stat">
+            <span class="profile-stat__value" id="statHabits">0</span>
+            <span class="profile-stat__label" data-i18n="settings.profile.statHabits">Active Habits</span>
+          </div>
+          <div class="profile-stat profile-stat--accent">
+            <span class="profile-stat__value" id="statStreak">0</span>
+            <span class="profile-stat__label" id="statStreakLabel" data-i18n="settings.profile.statStreak">Longest Streak</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Appearance -->
+      <section class="settings-panel" aria-labelledby="appearanceHeading">
+        <div class="settings-panel__row">
+          <div>
+            <h2 id="appearanceHeading" class="settings-panel__title" data-i18n="settings.appearance.title">Appearance</h2>
+            <p class="settings-panel__desc" data-i18n="settings.appearance.desc">Choose the mode that's easiest on your eyes.</p>
+          </div>
+          <button id="themeToggle" class="theme-switch" type="button" aria-pressed="false" aria-label="Toggle dark or light mode">
+            <span class="theme-switch__icon theme-switch__icon--sun" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.3"/><path d="M8 1v1.6M8 13.4V15M15 8h-1.6M2.6 8H1M12.6 3.4l-1.1 1.1M4.5 11.5l-1.1 1.1M12.6 12.6l-1.1-1.1M4.5 4.5 3.4 3.4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </span>
+            <span class="theme-switch__thumb"></span>
+            <span class="theme-switch__icon theme-switch__icon--moon" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="none"><path d="M13.5 9.7A5.6 5.6 0 0 1 6.3 2.5a5.6 5.6 0 1 0 7.2 7.2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Data management -->
+      <section class="settings-panel" aria-labelledby="dataHeading">
+        <h2 id="dataHeading" class="settings-panel__title" data-i18n="settings.data.title">Your Data</h2>
+        <p class="settings-panel__desc" data-i18n="settings.data.desc">Your data lives only in this browser — export a backup or import one to restore it.</p>
+
+        <div class="settings-panel__actions">
+          <button id="exportBtn" class="btn btn--primary" type="button">
+            <span data-i18n="settings.data.export">Export Data</span>
+            <span class="btn__sub">.json</span>
+          </button>
+
+          <label class="btn btn--ghost" for="importInput">
+            <span data-i18n="settings.data.import">Import Data</span>
+            <input type="file" id="importInput" accept="application/json" hidden />
+          </label>
+        </div>
+
+        <p id="dataStatus" class="settings-status" role="status" aria-live="polite"></p>
+      </section>
+
+      <!-- Danger zone -->
+      <section class="settings-panel settings-panel--danger" aria-labelledby="dangerHeading">
+        <h2 id="dangerHeading" class="settings-panel__title" data-i18n="settings.reset.title">Reset Local Preferences</h2>
+        <p class="settings-panel__desc" data-i18n="settings.reset.desc">Clears your profile, theme, and dismissed suggestions on this device. Habit data comes from the shared data layer and isn't affected.</p>
+        <button id="resetBtn" class="btn btn--danger" type="button" data-i18n="settings.reset.action">Reset Preferences</button>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Confirm modal -->
+  <div id="confirmModal" class="modal-overlay" hidden>
+    <div class="modal" role="alertdialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h3 id="modalTitle" data-i18n="settings.reset.confirmTitle">Reset local preferences?</h3>
+      <p data-i18n="settings.reset.confirmBody">Your profile, theme, and dismissed suggestions on this device will be cleared. Habit data is unaffected.</p>
+      <div class="modal__actions">
+        <button id="cancelReset" class="btn btn--ghost" type="button" data-i18n="settings.reset.cancel">Cancel</button>
+        <button id="confirmReset" class="btn btn--danger" type="button" data-i18n="settings.reset.confirm">Yes, reset preferences</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; width:100%; flex-wrap:wrap; gap:var(--space-4);">
+      <span data-i18n="footer.tagline">Habitly — built by the team, one page at a time.</span>
+      <span data-i18n="footer.credit" data-i18n-vars="coreLead:Ahmed Ibrahim Shaaban">Shell, tokens &amp; data layer — Core / Infra Lead — Ahmed Ibrahim Shaaban</span>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>

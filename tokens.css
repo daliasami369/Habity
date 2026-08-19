@@ -1,0 +1,201 @@
+/* ==========================================================================
+   Habitly — Design Tokens
+   Owner: Core / Infra Lead — Ahmed Ibrahim Shaaban
+   -----------------------------------------------------------------------
+   Every color, space, radius, and type value used anywhere in the app
+   should trace back to a variable defined here. No hardcoded hex values,
+   px sizes, or font names in page-level stylesheets — pull from these.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Markazi+Text:wght@500;600;700&family=Tajawal:wght@400;500;700&display=swap');
+
+:root {
+  /* ---------- Color / Surface ---------- */
+  --color-bg:  rgb(30, 30, 46);
+  --color-bg-elevated: #131642;
+  --color-surface: #170e3d;
+  --color-surface-hover: #0e5930;
+  --color-border: #0c1545;
+  --color-border-subtle: #dae5df;
+
+  /* ---------- Color / Text ---------- */
+  --color-text-primary: #F4F0E4;
+  --color-text-secondary: #AFB9AB;
+  --color-text-tertiary: #100b4a;
+  --color-text-inverse: #1313a4;
+
+  /* ---------- Color / Accent ---------- */
+  --color-gold: #D6A94B;
+  --color-gold-soft: #E9CE8F;
+  --color-rust: #C1652F;
+  --color-sage: #7FA65B;
+  --color-teal: #4C9A8B;
+  --color-plum: #9B6F97;
+
+  /* ---------- Color / Semantic ---------- */
+  --color-success: var(--color-sage);
+  --color-warning: var(--color-gold);
+  --color-danger: var(--color-rust);
+  --color-info: var(--color-teal);
+
+  /* ---------- Color / Category map ----------
+     Used consistently across Dashboard, My Habits, and Statistics
+     so a category reads the same color everywhere in the app. */
+  --cat-mind: var(--color-plum);
+  --cat-body: var(--color-sage);
+  --cat-health: var(--color-teal);
+  --cat-wellness: var(--color-rust);
+
+  /* ---------- Typography ---------- */
+  --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+
+  /* Arabic companions — swapped in under html[lang="ar"] below */
+  --font-display-ar: 'Markazi Text', 'Traditional Arabic', serif;
+  --font-body-ar: 'Tajawal', 'Segoe UI', sans-serif;
+
+  --fs-2xl: clamp(2.25rem, 1.7rem + 2.2vw, 3.25rem);
+  --fs-xl: clamp(1.6rem, 1.35rem + 1vw, 2.1rem);
+  --fs-lg: 1.3rem;
+  --fs-md: 1.0625rem;
+  --fs-base: 0.9375rem;
+  --fs-sm: 0.8125rem;
+  --fs-xs: 0.6875rem;
+
+  --lh-tight: 1.12;
+  --lh-snug: 1.35;
+  --lh-normal: 1.6;
+
+  --tracking-wide: 0.08em;
+  --tracking-wider: 0.14em;
+
+  /* ---------- Spacing (4px base unit) ---------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+
+  /* ---------- Radius ---------- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+  --radius-full: 999px;
+
+  /* ---------- Shadow ---------- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.3);
+  --shadow-focus: 0 0 0 3px rgba(214, 169, 75, 0.35);
+
+  /* ---------- Motion ---------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 120ms;
+  --duration-base: 220ms;
+
+  /* ---------- Layout ---------- */
+  --container-max: 1180px;
+  --header-height: 76px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+}
+
+/* ---------- Base reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  background-image:
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(214, 169, 75, 0.07), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 100% 0%, rgba(76, 154, 139, 0.06), transparent 55%);
+  background-attachment: fixed;
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: var(--lh-tight);
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Arabic mode — swap the type system, everything else (spacing, color,
+   layout) stays identical since components already use logical CSS
+   properties (margin-inline, padding-inline-end, etc). */
+html[lang="ar"] {
+  --font-display: var(--font-display-ar);
+  --font-body: var(--font-body-ar);
+}
+html[lang="ar"] body {
+  font-size: calc(var(--fs-base) + 0.0625rem); /* Arabic script reads a touch small at the same px size */
+}
+html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] h4 {
+  font-weight: 700;
+  line-height: var(--lh-snug);
+}
+html[lang="ar"] .hero__eyebrow,
+html[lang="ar"] .card__eyebrow,
+html[lang="ar"] .menu-card__owner,
+html[lang="ar"] .placeholder-page__owner {
+  font-family: var(--font-body-ar);
+  letter-spacing: 0;
+}
+
+p { margin: 0; }
+
+a { color: inherit; text-decoration: none; }
+
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+button, input, select {
+  font-family: inherit;
+  color: inherit;
+}
+
+/* Visible keyboard focus everywhere — never remove outline without replacing it */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Page fade-in, driven by router.js adding .is-page-ready to <html> */
+body {
+  opacity: 0;
+}
+html.is-page-ready body {
+  opacity: 1;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+@media (prefers-reduced-motion: reduce) {
+  body { opacity: 1; transition: none; }
+}

@@ -1,0 +1,361 @@
+/* ==========================================================================
+   Habitly — Dashboard page styles
+   Owner: Dalia Samy Abdelaziz
+   -----------------------------------------------------------------------
+   Build this page look here. Pull colors, spacing, radii, and type
+   from tokens.css — no hardcoded values (see Rules of Engagement).
+   Compose from components.css (.card, .pill, .seal, .tally, .ledger-row,
+   .check-ring) before inventing a new pattern.
+   ========================================================================== */
+ body{
+    background-color: rgb(30, 30, 46);
+    color: white;
+}
+header{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.pages a{
+    color:rgb(91, 85, 85); 
+    text-decoration: none;
+    font-size: 20px;
+}
+.pages:hover{
+    color:lawngreen;
+    border:2px solid ;
+    border-color:rgb(129, 252, 7) ;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 5px;
+}
+.habit{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:5px;
+    border-radius: 10px;
+}
+   .cards {
+    margin-top: 45px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.stat-card {
+    min-height: 155px;
+    padding: 25px;
+    background-color: #1d1a3d;
+    border: 1px solid #302c52;
+    border-radius: 20px;
+    color: white;
+}
+
+.stat-card h6 {
+    color: #8580ae;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.stat-card h2 {
+    margin: 0;
+    font-size: 36px;
+}
+
+.stat-card small {
+    color: #8580ae;
+}
+
+.stat-card p {
+    color: #8580ae;
+}
+.h2 {
+    color: #55d9ff;
+}
+
+.h {
+    color: #f76fa5;
+}
+
+.h-2 {
+    color: #9b7cff;
+}
+.progress-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.progress-circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(circle, #1d1a3d 58%, transparent 59%),
+        conic-gradient(
+            #b5ff3d 0deg 120deg,
+            #302c52 120deg 360deg
+        );
+}
+
+.progress-circle span {
+    color: #b5ff3d;
+    font-weight: bold;
+    font-size: 18px;
+}
+.section-card {
+    background-color: #1d1a3d;
+    border: 1px solid #302c52;
+    border-radius: 22px;
+    padding: 30px;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+.section-title h3 {
+    margin: 0;
+    font-family: Georgia, serif;
+}
+
+.section-title h3 span {
+    color: #8580ae;
+    font-size: 14px;
+}
+
+.section-title a {
+    color: #8580ae;
+    text-decoration: none;
+    font-size: 13px;
+}
+.tasks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 20px;
+
+    margin-bottom: 12px;
+
+    background-color: #201d40;
+    border: 1px solid #302c52;
+    border-radius: 17px;
+}
+.task-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.task-info h4 {
+    margin: 0;
+    color: white;
+    font-size: 16px;
+}
+
+.task-info h5 {
+    margin: 5px 0 0;
+    font-size: 12px;
+}
+.task-icon {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+}
+.blue-icon {
+    background-color: #20344f;
+    color: #55d9ff;
+}
+
+.green-icon {
+    background-color: #1d3b38;
+    color: #36dca0;
+}
+
+.pink-icon {
+    background-color: #40263e;
+    color: #f76fa5;
+}
+
+.purple-icon {
+    background-color: #393040;
+    color: #c18cff;
+}
+.habit-circle {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    border: 2px solid;
+}
+.blue {
+    border-color: #55d9ff;
+}
+
+.green {
+    border-color: #36dca0;
+}
+
+.pink {
+    border-color: #f76fa5;
+}
+
+.purple {
+    border-color: #c18cff;
+}
+.logo-icon {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 10px;
+
+    background: #b5ff3d;
+    color: #16132e;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.week-days {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 20px;
+    gap: 8px;
+}
+
+.day {
+    text-align: center;
+    flex: 1;
+}
+
+.day > span {
+    display: block;
+    font-size: 12px;
+    color: #77749d;
+    margin-bottom: 10px;
+}
+
+.day-box {
+    height: 64px;
+    width: 100%;
+    max-width: 44px;
+    margin: auto;
+
+    background: #4a4385;
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    padding-bottom: 7px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.day-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 43%;
+
+    background: #292443;
+}
+
+.day-box small {
+    position: relative;
+    z-index: 2;
+    color: #8580b3;
+    font-size: 12px;
+}
+
+/* اليوم الحالي */
+.today > span {
+    color: #aaff38;
+    font-weight: bold;
+}
+
+.today .day-box {
+    border: 1px solid #aaff38;
+    background: #52623d;
+}
+
+.today .day-box::before {
+    background: #292443;
+}
+
+.today .day-box small {
+    color: #aaff38;
+}
+
+
+.today i {
+    display: block;
+    width: 5px;
+    height: 5px;
+    background: #aaff38;
+    border-radius: 50%;
+    margin: 8px auto 0;
+}
+.completed-bycategory {
+    background-color: #1d1a3d;
+    border: 1px solid #302c52;
+    border-radius: 22px;
+    padding: 30px;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+/* ===== Recommendations ===== */
+
+
+.rec-toggle {
+  cursor: pointer;
+  transition: background-color 160ms ease, transform 120ms ease;
+  position: relative;
+}
+
+.rec-toggle:active {
+  transform: scale(0.9);
+}
+
+.rec-toggle.blue.rec-toggle--added   { background-color: #55d9ff; }
+.rec-toggle.green.rec-toggle--added  { background-color: #36dca0; }
+.rec-toggle.pink.rec-toggle--added   { background-color: #f76fa5; }
+.rec-toggle.purple.rec-toggle--added { background-color: #c18cff; }
+
+.rec-toggle--added::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1d1a3d;
+}

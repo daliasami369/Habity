@@ -1,0 +1,119 @@
+
+/* ==========================================================================
+   Habitly — Habits page styles
+   Owner: Nahla Yasser Arafat Abdelhay
+   -----------------------------------------------------------------------
+   Build this page look here. Pull colors, spacing, radii, and type
+   from tokens.css — no hardcoded values (see Rules of Engagement).
+   Compose from components.css (.card, .pill, .seal, .tally, .ledger-row,
+   .check-ring) before inventing a new pattern.
+   ========================================================================== */
+
+.habits-page {
+  padding-block: var(--space-6) var(--space-8);
+}
+
+.habits-page h1 {
+  font-size: var(--fs-xl);
+  margin-bottom: var(--space-1);
+}
+
+.sub {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+}
+
+.group-title {
+  color: var(--color-gold-soft);
+  font-size: var(--fs-sm);
+  margin: var(--space-5) 0 var(--space-3);
+}
+
+.habit {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+  margin-bottom: var(--space-3);
+}
+
+.habit.done {
+  border-color: var(--color-sage);
+}
+
+.habit-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-elevated);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--fs-lg);
+  color: var(--color-gold);
+}
+
+.habit-content {
+  flex: 1;
+}
+
+.habit-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.habit-title h4 {
+  font-size: var(--fs-md);
+}
+
+.duration {
+  background: var(--color-bg-elevated);
+  color: var(--color-teal);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+
+.category {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-xs);
+}
+
+.progress {
+  display: flex;
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+.dot {
+  width: var(--space-1);
+  height: var(--space-1);
+  border-radius: var(--radius-full);
+  background: var(--color-gold);
+}
+
+.info {
+  color: var(--color-text-tertiary);
+  font-size: var(--fs-xs);
+}
+
+.check {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-border);
+  background: transparent;
+  cursor: pointer;
+}
+
+.habit.done .check {
+  background: var(--color-sage);
+  border-color: var(--color-sage);
+  color: var(--color-text-inverse);
+}

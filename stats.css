@@ -1,0 +1,243 @@
+/* =========================================================
+   Habitly — Statistics page
+   Owner: Basmala Hassan Abdallah
+   ========================================================= */
+
+
+/* ================= Page ================= */
+
+.stats-page {
+    padding-block: var(--space-6) var(--space-8);
+}
+
+.stats-header {
+    margin-bottom: var(--space-5);
+}
+
+.stats-header h1 {
+    font-size: var(--fs-xl);
+    margin-bottom: var(--space-2);
+}
+
+.stats-header p {
+    color: var(--color-text-secondary);
+    font-size: var(--fs-sm);
+}
+
+
+/* ================= Sections ================= */
+
+.stats-section {
+    margin-bottom: var(--space-5);
+}
+
+.stats-section__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+}
+
+.stats-section__header h2 {
+    font-size: var(--fs-lg);
+}
+
+
+/* ================= Daily Streaks ================= */
+
+.streak-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.streak-list .ledger-row {
+    display: grid;
+    grid-template-columns: auto auto 1fr auto;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.streak-rank {
+    width: 2rem;
+    color: var(--color-text-tertiary);
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+}
+
+.streak-list .ledger-row__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: grid;
+    place-items: center;
+
+    background: var(--icon-bg);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--radius-md);
+}
+
+.streak-list .cat-dot {
+    width: 0.65rem;
+    height: 0.65rem;
+    border-radius: var(--radius-full);
+    background: var(--dot-color);
+}
+
+.streak-list .ledger-row__body {
+    min-width: 0;
+}
+
+.streak-list .ledger-row__title {
+    margin-bottom: var(--space-2);
+    font-size: var(--fs-base);
+    font-weight: 600;
+}
+
+.streak-progress {
+    width: 100%;
+    height: 0.4rem;
+    overflow: hidden;
+    background: var(--color-bg-elevated);
+    border-radius: var(--radius-full);
+}
+
+.streak-progress__bar {
+    height: 100%;
+    background: var(--progress-color);
+    border-radius: inherit;
+    transition:
+        width var(--duration-base) var(--ease-out);
+}
+
+.streak-value {
+    min-width: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-2);
+}
+
+.streak-value strong {
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+}
+
+.streak-value__best {
+    color: var(--color-text-tertiary);
+    font-size: var(--fs-xs);
+}
+
+
+/* ================= Weekly Habit Log ================= */
+
+.weekly-log-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.weekly-log {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+}
+
+.weekly-log th,
+.weekly-log td {
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--color-border-subtle);
+    text-align: center;
+}
+
+.weekly-log thead th {
+    color: var(--color-text-tertiary);
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+}
+
+.weekly-log tbody th {
+    text-align: left;
+    color: var(--color-text-primary);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+}
+
+.weekly-log tbody th .cat-dot {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-right: var(--space-2);
+    background: var(--dot-color);
+    border-radius: var(--radius-full);
+}
+
+.weekly-log tbody tr:last-child th,
+.weekly-log tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.weekly-log .check-ring {
+    margin-inline: auto;
+}
+
+.weekly-rate {
+    color: var(--color-gold);
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    font-weight: 500;
+}
+
+
+/* ================= Summary Cards ================= */
+
+.stats-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+}
+
+.summary-card {
+    min-height: 9rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.summary-card .card__eyebrow {
+    margin-bottom: var(--space-2);
+}
+
+.summary-card__value {
+    font-family: var(--font-display);
+    font-size: var(--fs-2xl);
+    line-height: var(--lh-tight);
+    color: var(--color-gold-soft);
+}
+
+.summary-card__description {
+    margin-top: var(--space-2);
+    color: var(--color-text-tertiary);
+    font-size: var(--fs-xs);
+}
+
+
+/* ================= Responsive ================= */
+
+@media (max-width: 768px) {
+
+    .streak-list .ledger-row {
+        grid-template-columns: auto auto 1fr;
+    }
+
+    .streak-value {
+        grid-column: 3;
+        justify-content: flex-start;
+        min-width: 0;
+    }
+
+    .stats-summary {
+        grid-template-columns: 1fr;
+    }
+
+}

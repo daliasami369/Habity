@@ -1,0 +1,416 @@
+/* ==========================================================================
+   Habitly — Shared Components
+   Owner: Core / Infra Lead — Ahmed Ibrahim Shaaban
+   -----------------------------------------------------------------------
+   Building blocks every page pulls from: nav, buttons, cards, pills,
+   the progress ring, and the tally streak mark. Page-level CSS should
+   compose these, not redefine them.
+   ========================================================================== */
+
+/* ---------- Site header / nav ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  background: rgb(30, 30, 46);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.site-header__inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.brand__mark {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.brand__name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-full);
+  padding: var(--space-1);
+}
+
+.nav__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  transition: background var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out);
+  white-space: nowrap;
+}
+
+.nav__link:hover {
+  color: var(--color-text-primary);
+}
+
+.nav__link.is-active {
+  background: var(--color-surface);
+  color: var(--color-gold-soft);
+  box-shadow: inset 0 0 0 1px var(--color-border);
+}
+
+.nav__link-icon {
+  width: 15px;
+  height: 15px;
+  opacity: 0.85;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* ---------- Language toggle ---------- */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 46px;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-elevated);
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  cursor: pointer;
+  transition: border-color var(--duration-base) var(--ease-out),
+              color var(--duration-base) var(--ease-out);
+}
+.lang-toggle:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold-soft);
+}
+html[lang="ar"] .lang-toggle {
+  font-family: var(--font-body);
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  color: var(--color-text-inverse);
+  background: linear-gradient(135deg, var(--color-gold-soft), var(--color-rust));
+}
+
+/* Mobile nav collapses to icon-only pills; labels hide under 720px */
+@media (max-width: 720px) {
+  .nav__link-label { display: none; }
+  .nav__link { padding: var(--space-2) var(--space-3); }
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform var(--duration-fast) var(--ease-out),
+              background var(--duration-base) var(--ease-out),
+              border-color var(--duration-base) var(--ease-out);
+}
+
+.btn:active { transform: scale(0.97); }
+
+.btn--primary {
+  background: var(--color-gold);
+  color: var(--color-text-inverse);
+}
+.btn--primary:hover { background: var(--color-gold-soft); }
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text-secondary);
+}
+.btn--ghost:hover {
+  border-color: var(--color-gold);
+  color: var(--color-text-primary);
+}
+
+/* ---------- Card ---------- */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+
+.card--elevated {
+  box-shadow: var(--shadow-md);
+}
+
+.card__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+/* ---------- Pill / Badge ---------- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  background: var(--color-bg-elevated);
+}
+
+.pill--active {
+  background: rgba(214, 169, 75, 0.14);
+  border-color: var(--color-gold);
+  color: var(--color-gold-soft);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px var(--space-2);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  background: var(--color-bg-elevated);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border-subtle);
+}
+
+/* Category dot — pairs with --cat-* tokens, e.g. style="--dot-color: var(--cat-mind)" */
+.cat-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dot-color, var(--color-text-tertiary));
+  display: inline-block;
+}
+
+/* ---------- Progress ring (signature element) ----------
+   A stamped "wax seal" ring: conic-gradient arc + dotted outer rim.
+   Usage: <div class="seal" style="--pct: 62; --seal-color: var(--color-gold)">
+            <div class="seal__inner">62%</div>
+          </div> */
+.seal {
+  --pct: 0;
+  --seal-color: var(--color-gold);
+  position: relative;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle, var(--color-bg-elevated) 0 62%, transparent 63%),
+    conic-gradient(var(--seal-color) calc(var(--pct) * 1%), var(--color-border-subtle) 0);
+}
+
+.seal::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1px dashed var(--color-border);
+  opacity: 0.6;
+}
+
+.seal__inner {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--color-text-primary);
+}
+
+/* ---------- Tally streak ----------
+   Days render as ledger tally marks, grouped in 5s like a hand-kept
+   streak count. Filled marks use the habit's category/accent color. */
+.tally {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 14px;
+}
+
+.tally__mark {
+  width: 2px;
+  height: 100%;
+  background: var(--color-border);
+  border-radius: 1px;
+}
+
+.tally__mark.is-filled {
+  background: var(--mark-color, var(--color-gold));
+}
+
+.tally__group {
+  display: flex;
+  gap: 3px;
+  padding-inline-end: 5px;
+  border-inline-end: 1px solid var(--color-border-subtle);
+}
+
+.tally__group:last-child {
+  border-inline-end: none;
+  padding-inline-end: 0;
+}
+
+/* ---------- Ledger row ----------
+   A single-line list row with a hairline rule, used for habit lists,
+   log tables, and settings rows across pages. */
+.ledger-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.ledger-row:last-child { border-bottom: none; }
+
+.ledger-row__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--icon-bg, var(--color-bg-elevated));
+  color: var(--icon-color, var(--color-text-primary));
+}
+
+.ledger-row__body { flex: 1; min-width: 0; }
+
+.ledger-row__title {
+  font-weight: 600;
+  font-size: var(--fs-md);
+}
+
+.ledger-row__meta {
+  margin-top: 2px;
+  font-size: var(--fs-sm);
+  color: var(--color-text-tertiary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ---------- Checkbox ring ---------- */
+.check-ring {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--ring-color, var(--color-border));
+  background: transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--duration-base) var(--ease-out);
+}
+
+.check-ring.is-done {
+  background: var(--color-sage);
+  border-color: var(--color-sage);
+  position: relative;
+}
+
+.check-ring.is-done::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 7px;
+  height: 12px;
+  border-right: 2px solid var(--color-text-inverse);
+  border-bottom: 2px solid var(--color-text-inverse);
+  transform: translateY(-2px) rotate(45deg);
+}
+
+/* ---------- Empty / placeholder state ----------
+   Shared shell for pages that are still under construction by another
+   team member — keeps the app looking finished while work is in flight. */
+.placeholder-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-3);
+  min-height: 46vh;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-7);
+  color: var(--color-text-secondary);
+}
+
+.placeholder-page__owner {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--color-border-subtle);
+  padding-block: var(--space-6);
+  margin-top: var(--space-8);
+  color: var(--color-text-tertiary);
+  font-size: var(--fs-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
